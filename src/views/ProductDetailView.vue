@@ -117,7 +117,7 @@ const addToCart = () => {
           <div class="flex items-center justify-between">
             <div>
               <p class="text-sm text-slate-500">Precio</p>
-              <p class="text-3xl font-bold text-cyan-600">$ {{ product.price }}</p>
+              <p class="text-3xl font-bold text-cyan-600">Bs. {{ product.price }}</p>
             </div>
             <div class="text-right">
               <p class="text-sm text-slate-500">Stock</p>

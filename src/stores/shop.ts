@@ -21,7 +21,7 @@ export const useShopStore = defineStore('shop', {
         price: 1299,
         stock: 8,
         sold: 24,
-        image: '/images/computadoras/laptop-gamer-pro.jpg',
+        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80',
         description: 'Laptop potente para gaming y diseño profesional.',
       },
       {
@@ -31,7 +31,7 @@ export const useShopStore = defineStore('shop', {
         price: 999,
         stock: 5,
         sold: 14,
-        image: '/images/computadoras/all-in-one-elite.jpg',
+        image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80',
         description: 'Equipo compacto con excelente rendimiento para oficina.',
       },
       {
@@ -41,7 +41,7 @@ export const useShopStore = defineStore('shop', {
         price: 849,
         stock: 12,
         sold: 21,
-        image: '/images/computadoras/pc-escritorio-x10.jpg',
+        image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80',
         description: 'Computadora de escritorio ideal para trabajo diario y estudio.',
       },
       {
@@ -51,7 +51,7 @@ export const useShopStore = defineStore('shop', {
         price: 149,
         stock: 20,
         sold: 37,
-        image: '/images/accesorios/combo-gamer-red-dragon.jpg',
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80',
         description: 'Mouse, teclado y auriculares diseñados para gaming.',
       },
       {
@@ -61,7 +61,7 @@ export const useShopStore = defineStore('shop', {
         price: 89,
         stock: 15,
         sold: 11,
-        image: '/images/accesorios/ssd-1tb.jpg',
+        image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80',
         description: 'Almacenamiento rápido y fiable para tu equipo.',
       },
       {
@@ -71,7 +71,7 @@ export const useShopStore = defineStore('shop', {
         price: 39,
         stock: 30,
         sold: 18,
-        image: '/images/accesorios/mouse-inalambrico-genius.jpg',
+        image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=1200&q=80',
         description: 'Diseño ergonómico y conexión inalámbrica sencilla.',
       },
     ] as Product[],

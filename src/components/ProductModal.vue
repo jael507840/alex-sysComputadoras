@@ -23,7 +23,7 @@ const isVisible = computed(() => !!props.product)
           <div class="mt-6 flex items-center justify-between rounded-2xl bg-slate-100 p-4">
             <div>
               <p class="text-sm text-slate-500">Precio</p>
-              <p class="text-2xl font-bold text-cyan-600">$ {{ props.product.price }}</p>
+              <p class="text-2xl font-bold text-cyan-600">Bs. {{ props.product.price }}</p>
             </div>
             <div class="text-right">
               <p class="text-sm text-slate-500">Stock</p>

@@ -64,7 +64,7 @@ const openProduct = (product: Product) => {
             <div>
               <p class="font-semibold">{{ product.name }}</p>
               <p class="text-sm text-slate-400">{{ product.category }}</p>
-              <p class="mt-1 text-sm font-semibold text-cyan-400">$ {{ product.price }}</p>
+              <p class="mt-1 text-sm font-semibold text-cyan-400">Bs. {{ product.price }}</p>
             </div>
             <div class="flex gap-2">
               <button class="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400" @click="buyNow(product)">Comprar ahora</button>
@@ -117,12 +117,39 @@ const openProduct = (product: Product) => {
 
       <div class="rounded-[2rem] border border-slate-200 bg-slate-900 p-8 text-white shadow-sm">
         <h3 class="text-2xl font-semibold">¿Qué incluye tu compra?</h3>
-        <ul class="mt-6 space-y-4 text-slate-300">
-          <li>• Garantía y soporte postventa.</li>
-          <li>• Envío rápido y seguimiento del pedido.</li>
-          <li>• Asesoría para elegir la mejor solución.</li>
-          <li>• Productos de marcas reconocidas y rendimiento probado.</li>
-        </ul>
+        <div class="mt-6 space-y-4 text-slate-300">
+          <div class="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-800/60 p-4">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500/20 text-2xl text-emerald-400">🛡️</div>
+            <div>
+              <h4 class="font-semibold text-white">Garantía y soporte</h4>
+              <p class="mt-1 text-sm text-slate-400">Tu compra cuenta con respaldo y asistencia postventa.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-800/60 p-4">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-cyan-500/20 text-2xl text-cyan-400">🚚</div>
+            <div>
+              <h4 class="font-semibold text-white">Envío rápido</h4>
+              <p class="mt-1 text-sm text-slate-400">Seguimiento del pedido y entrega ágil para tu comodidad.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-800/60 p-4">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500/20 text-2xl text-amber-400">💡</div>
+            <div>
+              <h4 class="font-semibold text-white">Asesoría experta</h4>
+              <p class="mt-1 text-sm text-slate-400">Te ayudamos a elegir la mejor solución según tus necesidades.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-800/60 p-4">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-fuchsia-500/20 text-2xl text-fuchsia-400">⭐</div>
+            <div>
+              <h4 class="font-semibold text-white">Calidad garantizada</h4>
+              <p class="mt-1 text-sm text-slate-400">Productos de marcas reconocidas y rendimiento probado.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -26,7 +26,7 @@ const checkout = () => {
             <img :src="item.product.image" :alt="item.product.name" class="h-20 w-20 rounded-2xl object-cover" />
             <div>
               <h3 class="font-semibold text-slate-900">{{ item.product.name }}</h3>
-              <p class="text-sm text-slate-500">${{ item.product.price }} c/u</p>
+              <p class="text-sm text-slate-500">Bs. {{ item.product.price }} c/u</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -40,11 +40,11 @@ const checkout = () => {
         <h2 class="text-2xl font-semibold">Resumen</h2>
         <div class="mt-6 space-y-3 text-slate-300">
           <div class="flex justify-between"><span>Productos</span><span>{{ store.totalItems }}</span></div>
-          <div class="flex justify-between"><span>Subtotal</span><span>${{ total }}</span></div>
+          <div class="flex justify-between"><span>Subtotal</span><span>Bs. {{ total }}</span></div>
           <div class="flex justify-between"><span>Envío</span><span>Gratis</span></div>
         </div>
         <div class="mt-6 border-t border-slate-700 pt-4">
-          <div class="flex justify-between text-lg font-semibold"><span>Total</span><span>${{ total }}</span></div>
+          <div class="flex justify-between text-lg font-semibold"><span>Total</span><span>Bs. {{ total }}</span></div>
           <button class="mt-6 w-full rounded-full bg-cyan-500 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400" @click="checkout">Finalizar compra</button>
           <button class="mt-3 w-full rounded-full border border-slate-700 px-4 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300" @click="store.clearCart">Vaciar carrito</button>
         </div>

@@ -80,8 +80,8 @@ const openProduct = (product: Product) => {
           <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-600">{{ groupedProducts[category]?.length ?? 0 }} productos</span>
         </div>
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article v-for="product in groupedProducts[category]" :key="product.id" class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            <img :src="product.image" :alt="product.name" class="h-48 w-full object-cover" />
+          <article v-for="product in groupedProducts[category]" :key="product.id" class="overflow-hidden rounded-[1.5rem] border border-cyan-300 bg-cyan-50/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:border-cyan-500">
+            <img :src="product.image" :alt="product.name" class="h-56 w-full object-cover transition duration-300 hover:scale-105" />
             <div class="space-y-4 p-5">
               <div>
                 <div class="flex items-center justify-between gap-2">
@@ -96,7 +96,7 @@ const openProduct = (product: Product) => {
                 <span>Vendidos: {{ product.sold }}</span>
               </div>
               <div class="flex items-center justify-between gap-3 pt-2">
-                <span class="text-2xl font-bold text-cyan-600">$ {{ product.price }}</span>
+                <span class="text-2xl font-bold text-cyan-600">Bs. {{ product.price }}</span>
                 <div class="flex gap-2">
                   <button class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-600" :class="animatedProductId === product.id ? 'animate-pulse' : ''" @click="addToCartAnimated(product)">Agregar</button>
                   <button class="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400" @click="buyNow(product)">Comprar</button>

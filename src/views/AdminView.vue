@@ -33,7 +33,7 @@ const salesData = computed(() => store.products.map((product) => ({
       </div>
       <div class="rounded-3xl bg-emerald-600 p-6 text-white shadow-xl">
         <p class="text-sm text-emerald-100">Ingresos totales</p>
-        <p class="mt-3 text-4xl font-semibold">$ {{ revenue }}</p>
+        <p class="mt-3 text-4xl font-semibold">Bs. {{ revenue }}</p>
       </div>
     </div>
 
