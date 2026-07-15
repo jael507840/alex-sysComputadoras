@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true'
 
 export default defineConfig({
-  base: isGitHubPages ? '/proyectoVue/' : '/',
+  base: isGitHubPages ? '/alex-sysComputadoras/' : '/',
   plugins: [
     vue(),
     vueDevTools(),
