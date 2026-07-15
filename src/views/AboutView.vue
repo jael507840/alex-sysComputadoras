@@ -4,7 +4,7 @@
       <div class="space-y-6">
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-500">Nosotros</p>
         <h1 class="text-4xl font-bold text-slate-900">Alex@sys, tu aliado tecnológico</h1>
-        <p class="text-lg text-slate-600">Somos una tienda especializada en equipos de cómputo, accesorios y soluciones de red para hogares, oficinas y gamers. Ofrecemos productos de marcas reconocidas con garantía y asesoría personalizada.</p>
+        <p class="text-lg text-slate-600">Somos una tienda especializada en equipos de cómputo, accesorios y soluciones de red para hogares, oficinas y gamers. Ofrecemos productos de marcas reconocidas con garantía oficial.</p>
         <p class="text-slate-600">Brindamos computadoras de escritorio, all in one, portátiles, mouse, teclados, discos duros, fuentes de poder, routers, cables y componentes para potenciar tu experiencia digital.</p>
 
         <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
@@ -17,7 +17,7 @@
 
         <div class="grid gap-4 md:grid-cols-2">
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img :src="`${import.meta.env.BASE_URL}images/computadoras/all-in-one-elite.jpg`" alt="Equipo All in One de Alex@sys" class="h-44 w-full object-cover" />
+            <img :src="`${baseUrl}images/computadoras/all-in-one-elite.jpg`" alt="Equipo All in One de Alex@sys" class="h-44 w-full object-cover" />
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Soluciones modernas</h3>
               <p class="mt-2 text-sm text-slate-600">Equipos pensados para trabajo, estudio y entretenimiento con excelente rendimiento.</p>
@@ -25,7 +25,7 @@
           </div>
 
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img :src="`${import.meta.env.BASE_URL}images/accesorios/ssd-1tb.jpg`" alt="Accesorio tecnológico de Alex@sys" class="h-44 w-full object-cover" />
+            <img :src="`${baseUrl}images/accesorios/ssd-1tb.jpg`" alt="Accesorio tecnológico de Alex@sys" class="h-44 w-full object-cover" />
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Accesorios confiables</h3>
               <p class="mt-2 text-sm text-slate-600">Mouse, teclados, almacenamiento y más para complementar tu setup.</p>
@@ -79,3 +79,7 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const baseUrl = import.meta.env.BASE_URL;
+</script>
