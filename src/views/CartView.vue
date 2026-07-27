@@ -7,7 +7,8 @@ const total = computed(() => store.cart.reduce((sum, item) => sum + item.product
 const showModal = ref(false)
 
 const checkout = () => {
-  store.clearCart()
+  // Llamar a la acción checkout del store para procesar la venta
+  store.checkout()
   showModal.value = true
 }
 </script>
@@ -21,7 +22,7 @@ const checkout = () => {
 
     <div v-if="store.cart.length" class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
       <div class="space-y-4">
-        <div v-for="item in store.cart" :key="item.product.id" class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:flex-row sm:items-center sm:justify-between">
+        <div v-for="item in store.cart" :key="item.product.id" class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
           <div class="flex items-center gap-4">
             <img :src="item.product.image" :alt="item.product.name" class="h-20 w-20 rounded-2xl object-cover" />
             <div>
