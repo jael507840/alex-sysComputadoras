@@ -4,11 +4,11 @@
       <div class="space-y-6">
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-500">Nosotros</p>
         <h1 class="text-4xl font-bold text-slate-900">Alex@sys, tu aliado tecnológico</h1>
-        <p class="text-lg text-slate-600">Somos una tienda especializada en equipos de cómputo, accesorios y soluciones de red para hogares, oficinas y gamers. Ofrecemos productos de marcas reconocidas con garantía oficial.</p>
-        <p class="text-slate-600">Brindamos computadoras de escritorio, all in one, portátiles, mouse, teclados, discos duros, fuentes de poder, routers, cables y componentes para potenciar tu experiencia digital.</p>
+        <p class="text-lg text-slate-600">Somos una tienda especializada en equipos de cómputo, accesorios y soluciones de red para hogares, oficinas y gamers. Ofrecemos productos de marcas reconocidas con garantía y asesoría técnica.</p>
+        <p class="text-slate-600">Brindamos computadoras de escritorio, all in one, portátiles, mouse, teclados, discos duros, fuentes de poder, routers, cables y componentes para potenciar tu experiencia tecnológica.</p>
 
         <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Equipo comprometido con la responsabilidad y eficiencia en el servicio" class="h-64 w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Equipo comprometido con la responsabilidad y eficiencia en el servicio" class="h-64 w-full object-cover">
           <div class="p-5">
             <h3 class="text-xl font-semibold text-slate-900">Compromiso institucional</h3>
             <p class="mt-2 text-slate-600">Nos caracterizamos por la responsabilidad, puntualidad y eficiencia en cada atención, garantizando confianza y soporte real para nuestros clientes.</p>
@@ -17,7 +17,7 @@
 
         <div class="grid gap-4 md:grid-cols-2">
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Equipos de cómputo modernos para trabajo y entretenimiento" class="h-44 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Equipos de cómputo modernos para trabajo y entretenimiento" class="h-44 w-full object-cover">
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Soluciones modernas</h3>
               <p class="mt-2 text-sm text-slate-600">Equipos pensados para trabajo, estudio y entretenimiento con excelente rendimiento.</p>
@@ -25,10 +25,10 @@
           </div>
 
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1468033056034-da2003b12b51?auto=format&fit=crop&w=800&q=80" alt="Accesorios tecnológicos y periféricos de calidad" class="h-44 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1537498425046-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Accesorios tecnológicos: SSD, teclado, mouse y periféricos de calidad" class="h-44 w-full object-cover">
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Accesorios confiables</h3>
-              <p class="mt-2 text-sm text-slate-600">Mouse, teclados, almacenamiento y más para complementar tu setup.</p>
+              <p class="mt-2 text-sm text-slate-600">SSD, mouse, teclados, almacenamiento y más para complementar tu setup.</p>
             </div>
           </div>
         </div>
