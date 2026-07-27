@@ -12,6 +12,12 @@ const salesData = computed(() => store.products.map((product) => ({
   name: product.name,
   sold: product.sold,
 })))
+
+const recentSalesDisplay = computed(() => store.recentSales.map((sale) => ({
+  name: sale.productName,
+  quantity: sale.quantity,
+  time: new Date(sale.timestamp).toLocaleTimeString('es-ES'),
+})))
 </script>
 
 <template>
@@ -54,12 +60,32 @@ const salesData = computed(() => store.products.map((product) => ({
       </div>
 
       <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-semibold text-slate-900">Resumen rápido</h2>
-        <div class="mt-6 space-y-4 text-slate-600">
-          <p>El catálogo se actualiza en tiempo real según el estado global del carrito y los productos.</p>
-          <p>El producto más vendido se calcula automáticamente a partir de las ventas simuladas registradas en cada artículo.</p>
-          <p>Los ingresos totales representan la suma del precio por cantidad vendida de todos los productos.</p>
+        <h2 class="text-xl font-semibold text-slate-900">Ventas recientes</h2>
+        <div class="mt-6 space-y-3">
+          <div v-if="recentSalesDisplay.length > 0" class="max-h-64 space-y-3 overflow-y-auto">
+            <div v-for="(sale, index) in recentSalesDisplay" :key="index" class="rounded-lg bg-slate-50 p-3 text-sm">
+              <div class="flex justify-between">
+                <span class="font-medium text-slate-900">{{ sale.name }}</span>
+                <span class="text-cyan-600 font-semibold">+{{ sale.quantity }}</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">{{ sale.time }}</p>
+            </div>
+          </div>
+          <div v-else class="text-center text-slate-400 py-8">
+            <p class="text-sm">No hay ventas registradas aún</p>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-4">Información del sistema</h2>
+      <div class="space-y-3 text-slate-600 text-sm">
+        <p>✅ El dashboard se actualiza en tiempo real según las transacciones del carrito.</p>
+        <p>✅ Cuando se confirma una compra, los contadores de ventas se incrementan automáticamente.</p>
+        <p>✅ El producto más vendido se recalcula dinámicamente en base a los datos actualizados.</p>
+        <p>✅ Los ingresos totales se actualizan reflejando todas las ventas registradas.</p>
+        <p>✅ El historial de ventas recientes muestra las últimas 10 transacciones con timestamp.</p>
       </div>
     </div>
   </section>
