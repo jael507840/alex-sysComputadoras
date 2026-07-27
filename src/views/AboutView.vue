@@ -17,7 +17,7 @@
 
         <div class="grid gap-4 md:grid-cols-2">
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img :src="`${baseUrl}images/computadoras/all-in-one-elite.jpg`" alt="Equipo All in One de Alex@sys" class="h-44 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Equipos de cómputo modernos para trabajo y entretenimiento" class="h-44 w-full object-cover" />
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Soluciones modernas</h3>
               <p class="mt-2 text-sm text-slate-600">Equipos pensados para trabajo, estudio y entretenimiento con excelente rendimiento.</p>
@@ -25,7 +25,7 @@
           </div>
 
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img :src="`${baseUrl}images/accesorios/ssd-1tb.jpg`" alt="Accesorio tecnológico de Alex@sys" class="h-44 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1468033056034-da2003b12b51?auto=format&fit=crop&w=800&q=80" alt="Accesorios tecnológicos y periféricos de calidad" class="h-44 w-full object-cover" />
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Accesorios confiables</h3>
               <p class="mt-2 text-sm text-slate-600">Mouse, teclados, almacenamiento y más para complementar tu setup.</p>
