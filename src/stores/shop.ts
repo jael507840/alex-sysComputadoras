@@ -76,6 +76,7 @@ export const useShopStore = defineStore('shop', {
       },
     ] as Product[],
     cart: [] as Array<{ product: Product; quantity: number }>,
+    recentSales: [] as Array<{ productName: string; quantity: number; timestamp: number }>,
   }),
   getters: {
     featuredProducts: (state) => state.products.slice(0, 3),
@@ -115,6 +116,29 @@ export const useShopStore = defineStore('shop', {
           this.removeFromCart(productId)
         }
       }
+    },
+    checkout() {
+      // Procesar cada item del carrito
+      for (const item of this.cart) {
+        // Encontrar el producto en el store
+        const product = this.products.find((p) => p.id === item.product.id)
+        if (product) {
+          // Aumentar el contador de vendidos
+          product.sold += item.quantity
+          // Disminuir el stock (opcional)
+          product.stock = Math.max(0, product.stock - item.quantity)
+          // Registrar la venta reciente
+          this.recentSales.unshift({
+            productName: product.name,
+            quantity: item.quantity,
+            timestamp: Date.now(),
+          })
+        }
+      }
+      // Mantener solo las últimas 10 ventas
+      this.recentSales = this.recentSales.slice(0, 10)
+      // Limpiar el carrito
+      this.cart = []
     },
     clearCart() {
       this.cart = []
