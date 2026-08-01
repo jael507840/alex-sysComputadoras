@@ -29,17 +29,31 @@ const recentSalesDisplay = computed(() => store.recentSales.map((sale) => ({
 
     <div class="grid gap-6 md:grid-cols-3">
       <div class="rounded-3xl bg-slate-900 p-6 text-white shadow-xl">
-        <p class="text-sm text-slate-400">Productos en catálogo</p>
-        <p class="mt-3 text-4xl font-semibold">{{ totalProducts }}</p>
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-slate-400">Productos disponibles</p>
+          <div class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">Stock</div>
+        </div>
+        <p class="mt-4 text-4xl font-semibold">{{ totalProducts }}</p>
+        <p class="mt-2 text-sm text-slate-400">Productos con inventario activo</p>
       </div>
-      <div class="rounded-3xl bg-cyan-600 p-6 text-white shadow-xl">
-        <p class="text-sm text-cyan-100">Producto más vendido</p>
-        <p class="mt-3 text-2xl font-semibold">{{ bestSeller?.name }}</p>
-        <p class="text-sm text-cyan-100">{{ bestSeller?.sold }} unidades</p>
+
+      <div class="rounded-3xl bg-gradient-to-br from-cyan-600 to-sky-700 p-6 text-white shadow-xl">
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-cyan-100">Producto más vendido</p>
+          <div class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Top</div>
+        </div>
+        <p class="mt-4 text-2xl font-semibold">{{ bestSeller?.name }}</p>
+        <p class="mt-2 text-sm text-cyan-100">{{ bestSeller?.sold }} unidades vendidas</p>
+        <p class="mt-3 text-xs uppercase tracking-[0.25em] text-cyan-50/80">Rendimiento destacado</p>
       </div>
-      <div class="rounded-3xl bg-emerald-600 p-6 text-white shadow-xl">
-        <p class="text-sm text-emerald-100">Ingresos totales</p>
-        <p class="mt-3 text-4xl font-semibold">Bs. {{ revenue }}</p>
+
+      <div class="rounded-3xl bg-gradient-to-br from-emerald-600 to-teal-700 p-6 text-white shadow-xl">
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-emerald-100">Ingresos totales</p>
+          <div class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Bs</div>
+        </div>
+        <p class="mt-4 text-4xl font-semibold">Bs. {{ revenue }}</p>
+        <p class="mt-2 text-sm text-emerald-100">Estimación basada en ventas registradas</p>
       </div>
     </div>
 
