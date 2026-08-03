@@ -25,7 +25,7 @@
           </div>
 
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img src="https://es.pngtree.com/free-backgrounds-photos/un-ordenador-port%C3%A1til-pictures" alt="Accesorios tecnológicos: SSD, teclado, mouse y periféricos de calidad" class="h-44 w-full object-cover">
+            <img src="https://www.istockphoto.com/photo/gamer-work-space-concept-top-view-a-gaming-gear-mouse-keyboard-joystick-headset-gm1170073824-323659137?utm_source=pixabay&utm_medium=affiliate&utm_campaign=sponsored_image&utm_content=srp_bottombanner_media&utm_term=accesorios+para+computadora" alt="Accesorios tecnológicos: SSD, teclado, mouse y periféricos de calidad" class="h-44 w-full object-cover">
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Accesorios confiables</h3>
               <p class="mt-2 text-sm text-slate-600">SSD, mouse, teclados, almacenamiento y más para complementar tu setup.</p>
