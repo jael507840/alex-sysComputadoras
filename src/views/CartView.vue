@@ -5,11 +5,23 @@ import { useShopStore } from '@/stores/shop'
 const store = useShopStore()
 const total = computed(() => store.cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0))
 const showModal = ref(false)
+const showError = ref(false)
+const errorMessage = ref('')
 
 const checkout = () => {
-  // Llamar a la acción checkout del store para procesar la venta
-  store.checkout()
-  showModal.value = true
+  // Validar stock y procesar la compra
+  const success = store.checkout()
+  
+  if (success) {
+    showModal.value = true
+    errorMessage.value = ''
+  } else {
+    showError.value = true
+    errorMessage.value = 'No hay suficiente stock para completar la compra. Verifica las cantidades.'
+    setTimeout(() => {
+      showError.value = false
+    }, 4000)
+  }
 }
 </script>
 
@@ -54,6 +66,15 @@ const checkout = () => {
 
     <div v-else class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-600">
       Tu carrito está vacío. Explora el catálogo para agregar productos.
+    </div>
+
+    <div v-if="showError" class="fixed inset-0 z-30 flex items-center justify-center bg-slate-950/70 px-4">
+      <div class="w-full max-w-md rounded-[2rem] bg-white p-8 text-center shadow-2xl">
+        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-rose-100 text-3xl">⚠️</div>
+        <h3 class="mt-4 text-2xl font-semibold text-slate-900">Error en la compra</h3>
+        <p class="mt-3 text-slate-600">{{ errorMessage }}</p>
+        <button class="mt-6 rounded-full bg-slate-900 px-5 py-3 font-semibold text-white transition hover:bg-cyan-600" @click="showError = false">Entendido</button>
+      </div>
     </div>
 
     <div v-if="showModal" class="fixed inset-0 z-30 flex items-center justify-center bg-slate-950/70 px-4">

@@ -11,6 +11,8 @@ const selectedCategory = ref<'all' | 'computadoras' | 'accesorios'>('all')
 const searchQuery = ref('')
 const selectedProduct = ref<Product | null>(null)
 const animatedProductId = ref<number | null>(null)
+const showNotification = ref(false)
+const notificationMessage = ref('')
 
 const filteredProducts = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
@@ -31,9 +33,19 @@ const groupedProducts = computed(() => {
 const triggerCartAnimation = (product: Product) => {
   store.addToCart(product)
   animatedProductId.value = product.id
+  
+  // Mostrar notificación
+  notificationMessage.value = `${product.name} agregado al carrito ✓`
+  showNotification.value = true
+  
   setTimeout(() => {
     animatedProductId.value = null
   }, 500)
+  
+  // Ocultar notificación después de 3 segundos
+  setTimeout(() => {
+    showNotification.value = false
+  }, 3000)
 }
 
 const buyNow = (product: Product) => {
@@ -110,6 +122,14 @@ const openProduct = (product: Product) => {
 
     <div v-else class="rounded-[2rem] border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-600">
       No se encontraron productos con ese criterio. Prueba con otra búsqueda o categoría.
+    </div>
+
+    <!-- Notificación de producto agregado al carrito -->
+    <div v-if="showNotification" class="fixed top-6 right-6 z-50 animate-bounce">
+      <div class="rounded-full bg-emerald-500 text-white px-6 py-3 shadow-lg font-semibold text-sm flex items-center gap-2">
+        <span class="text-xl">🛒</span>
+        {{ notificationMessage }}
+      </div>
     </div>
   </section>
 

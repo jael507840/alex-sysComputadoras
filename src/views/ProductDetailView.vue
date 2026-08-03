@@ -11,6 +11,8 @@ const product = computed<Product | undefined>(() => store.products.find((item) =
 const submitted = ref(false)
 const isSending = ref(false)
 const submitError = ref('')
+const showNotification = ref(false)
+const notificationMessage = ref('')
 const form = ref({
   name: '',
   email: '',
@@ -91,7 +93,15 @@ const submitForm = async () => {
 const addToCart = () => {
   if (product.value) {
     store.addToCart(product.value)
-    router.push('/carrito')
+    
+    // Mostrar notificación
+    notificationMessage.value = `${product.value.name} agregado al carrito ✓`
+    showNotification.value = true
+    
+    // Ocultar notificación después de 3 segundos
+    setTimeout(() => {
+      showNotification.value = false
+    }, 3000)
   }
 }
 </script>
@@ -194,6 +204,14 @@ const addToCart = () => {
           <li>• Entrega rápida y seguimiento de pedido.</li>
           <li>• Precios competitivos y garantías reales.</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Notificación de producto agregado al carrito -->
+    <div v-if="showNotification" class="fixed top-6 right-6 z-50 animate-bounce">
+      <div class="rounded-full bg-emerald-500 text-white px-6 py-3 shadow-lg font-semibold text-sm flex items-center gap-2">
+        <span class="text-xl">🛒</span>
+        {{ notificationMessage }}
       </div>
     </div>
   </section>

@@ -1,23 +1,61 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch, ref } from 'vue'
 import { useShopStore } from '@/stores/shop'
 
 const store = useShopStore()
+const updateTrigger = ref(0)
 
-const totalProducts = computed(() => store.totalProducts)
-const bestSeller = computed(() => store.bestSeller)
-const revenue = computed(() => store.totalRevenue)
+// Computed properties con dependencias directas del store
+const totalProducts = computed(() => {
+  updateTrigger.value // Referenciar el trigger para forzar actualización
+  return store.products.filter((p) => p.stock > 0).length
+})
 
-const salesData = computed(() => store.products.map((product) => ({
-  name: product.name,
-  sold: product.sold,
-})))
+const bestSeller = computed(() => {
+  updateTrigger.value // Referenciar el trigger
+  const sorted = [...store.products].sort((a, b) => b.sold - a.sold)
+  return sorted[0] || null
+})
 
-const recentSalesDisplay = computed(() => store.recentSales.map((sale) => ({
-  name: sale.productName,
-  quantity: sale.quantity,
-  time: new Date(sale.timestamp).toLocaleTimeString('es-ES'),
-})))
+const revenue = computed(() => {
+  updateTrigger.value // Referenciar el trigger
+  return store.products.reduce((sum, product) => sum + product.price * product.sold, 0)
+})
+
+const salesData = computed(() => {
+  updateTrigger.value // Referenciar el trigger
+  return store.products.map((product) => ({
+    name: product.name,
+    sold: product.sold,
+    stock: product.stock,
+  }))
+})
+
+const recentSalesDisplay = computed(() => {
+  updateTrigger.value // Referenciar el trigger
+  return store.recentSales.map((sale) => ({
+    name: sale.productName,
+    quantity: sale.quantity,
+    time: new Date(sale.timestamp).toLocaleTimeString('es-ES'),
+  }))
+})
+
+// Watcher para monitorear cambios en el store y forzar actualización
+watch(
+  () => store.products,
+  () => {
+    updateTrigger.value++
+  },
+  { deep: true }
+)
+
+watch(
+  () => store.recentSales,
+  () => {
+    updateTrigger.value++
+  },
+  { deep: true }
+)
 </script>
 
 <template>
@@ -35,6 +73,9 @@ const recentSalesDisplay = computed(() => store.recentSales.map((sale) => ({
         </div>
         <p class="mt-4 text-4xl font-semibold">{{ totalProducts }}</p>
         <p class="mt-2 text-sm text-slate-400">Productos con inventario activo</p>
+        <div class="mt-4 pt-4 border-t border-slate-700">
+          <p class="text-xs text-slate-500">Stock total: <span class="text-emerald-400 font-semibold">{{ store.products.reduce((sum, p) => sum + p.stock, 0) }}</span></p>
+        </div>
       </div>
 
       <div class="rounded-3xl bg-gradient-to-br from-cyan-600 to-sky-700 p-6 text-white shadow-xl">
@@ -63,10 +104,13 @@ const recentSalesDisplay = computed(() => store.recentSales.map((sale) => ({
         <div class="mt-6 space-y-4">
           <div v-for="item in salesData" :key="item.name" class="space-y-2">
             <div class="flex justify-between text-sm text-slate-600">
-              <span>{{ item.name }}</span>
-              <span>{{ item.sold }} vendidas</span>
+              <span class="font-medium">{{ item.name }}</span>
+              <div class="flex gap-4 text-xs">
+                <span class="text-cyan-600 font-semibold">{{ item.sold }} vendidas</span>
+                <span class="text-emerald-600 font-semibold">{{ item.stock }} en stock</span>
+              </div>
             </div>
-            <div class="h-3 rounded-full bg-slate-100">
+            <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
               <div class="h-3 rounded-full bg-cyan-500" :style="{ width: `${Math.min(item.sold * 2, 100)}%` }"></div>
             </div>
           </div>

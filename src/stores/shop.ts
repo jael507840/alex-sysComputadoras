@@ -83,7 +83,13 @@ export const useShopStore = defineStore('shop', {
     totalItems: (state) => state.cart.reduce((sum, item) => sum + item.quantity, 0),
     subtotal: (state) => state.cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
     totalProducts: (state) => state.products.filter((product) => product.stock > 0).length,
-    bestSeller: (state) => [...state.products].sort((a, b) => b.sold - a.sold)[0],
+    bestSeller: (state) => {
+      // Retornar el producto con más ventas
+      if (state.products.length === 0) return null
+      return state.products.reduce((best, current) => 
+        current.sold > best.sold ? current : best
+      )
+    },
     totalRevenue: (state) => state.products.reduce((sum, product) => sum + product.price * product.sold, 0),
     productsByCategory: (state) => {
       return state.products.reduce((groups, product) => {
@@ -118,15 +124,31 @@ export const useShopStore = defineStore('shop', {
       }
     },
     checkout() {
+      // Validar que todos los items tengan suficiente stock
+      for (const item of this.cart) {
+        const product = this.products.find((p) => p.id === item.product.id)
+        if (!product || product.stock < item.quantity) {
+          console.warn(`No hay suficiente stock para ${product?.name || 'producto desconocido'}`)
+          return false
+        }
+      }
+
       // Procesar cada item del carrito
       for (const item of this.cart) {
-        // Encontrar el producto en el store
-        const product = this.products.find((p) => p.id === item.product.id)
-        if (product) {
+        // Encontrar el producto en el store por ID
+        const productIndex = this.products.findIndex((p) => p.id === item.product.id)
+        if (productIndex !== -1) {
+          const product = this.products[productIndex]
+          
           // Aumentar el contador de vendidos
           product.sold += item.quantity
-          // Disminuir el stock (opcional)
+          
+          // Disminuir el stock
           product.stock = Math.max(0, product.stock - item.quantity)
+          
+          // Forzar reactividad: reasignar el producto actualizado
+          this.products[productIndex] = { ...product }
+          
           // Registrar la venta reciente
           this.recentSales.unshift({
             productName: product.name,
@@ -135,10 +157,14 @@ export const useShopStore = defineStore('shop', {
           })
         }
       }
+      
       // Mantener solo las últimas 10 ventas
       this.recentSales = this.recentSales.slice(0, 10)
+      
       // Limpiar el carrito
       this.cart = []
+      
+      return true
     },
     clearCart() {
       this.cart = []
