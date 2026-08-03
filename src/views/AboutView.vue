@@ -25,7 +25,7 @@
           </div>
 
           <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1537498425046-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Accesorios tecnológicos: SSD, teclado, mouse y periféricos de calidad" class="h-44 w-full object-cover">
+            <img src="https://es.pngtree.com/free-backgrounds-photos/un-ordenador-port%C3%A1til-pictures" alt="Accesorios tecnológicos: SSD, teclado, mouse y periféricos de calidad" class="h-44 w-full object-cover">
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">Accesorios confiables</h3>
               <p class="mt-2 text-sm text-slate-600">SSD, mouse, teclados, almacenamiento y más para complementar tu setup.</p>
